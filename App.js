@@ -9,7 +9,7 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View, Image
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -19,13 +19,26 @@ const instructions = Platform.select({
   'Shake or press menu button for dev menu',
 });
 
+class Greeting extends Component{
+  render(){
+    return (
+      <Text >Hello {this.props.name} ! </Text>
+    )
+  }
+}
+
 export default class App extends Component<{}> {
   render() {
+    let pic = {uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}
     return (
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
-        <View style={{ flex: 1, backgroundColor: 'powderblue' }} />
+        <View style={{ flex: 1, backgroundColor: 'powderblue' }} >
+          <Greeting name='evans'/>
+        </View>
         <View style={{ flex: 1, backgroundColor: 'skyblue' }} />
-        <View style={{ height: 50, flex: 1, backgroundColor: 'steelblue' }} />
+        <View style={{ height: 50, flex: 1, backgroundColor: 'steelblue' }} >
+          <Image source={pic} style ={{ flex:1 }}/>
+        </View>
       </View>
     );
   }
