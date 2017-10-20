@@ -27,6 +27,33 @@ class Greeting extends Component{
   }
 }
 
+class Blink extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      showText: true
+    }
+
+    setInterval(() =>{
+      this.setState({ showText: !this.state.showText})
+    }, 1000)
+  }
+
+  render(){
+    return(
+      <View>
+        {
+          this.state.showText ?(
+            <Text>{this.props.text}</Text>
+          ):(
+           <View></View> 
+          )
+        }
+      </View>
+    )
+  }
+}
+
 export default class App extends Component<{}> {
   render() {
     let pic = {uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}
@@ -35,7 +62,9 @@ export default class App extends Component<{}> {
         <View style={{ flex: 1, backgroundColor: 'powderblue' }} >
           <Greeting name='evans'/>
         </View>
-        <View style={{ flex: 1, backgroundColor: 'skyblue' }} />
+        <View style={{ flex: 1, backgroundColor: 'skyblue' }} >
+          <Blink text="lorem ipsum  "/>
+        </View>
         <View style={{ height: 50, flex: 1, backgroundColor: 'steelblue' }} >
           <Image source={pic} style ={{ flex:1 }}/>
         </View>
