@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
+  Text, TextInput,
   View, Image
 } from 'react-native';
 
@@ -19,36 +19,52 @@ const instructions = Platform.select({
   'Shake or press menu button for dev menu',
 });
 
-class Greeting extends Component{
-  render(){
+class Greeting extends Component {
+  render() {
     return (
       <Text >Hello {this.props.name} ! </Text>
     )
   }
 }
 
-class Blink extends Component{
-  constructor(props){
+class Blink extends Component {
+  constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       showText: true
     }
 
-    setInterval(() =>{
-      this.setState({ showText: !this.state.showText})
+    setInterval(() => {
+      this.setState({ showText: !this.state.showText })
     }, 1000)
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <View>
         {
-          this.state.showText ?(
+          this.state.showText ? (
             <Text>{this.props.text}</Text>
-          ):(
-           <View></View> 
-          )
+          ) : (
+              <View></View>
+            )
         }
+      </View>
+    )
+  }
+}
+
+class TextForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { text: "Nothing entered" }
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1}}>
+        <Text style={{flex:1}}>{this.state.text}</Text>
+        <TextInput style={{ flex: 2, height:50 }} placeholder="type fool... 🍕" onChangeText={(textEntered) => { this.setState({ text : textEntered }) }} />
       </View>
     )
   }
@@ -56,17 +72,20 @@ class Blink extends Component{
 
 export default class App extends Component<{}> {
   render() {
-    let pic = {uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}
+    let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
     return (
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
         <View style={{ flex: 1, backgroundColor: 'powderblue' }} >
-          <Greeting name='evans'/>
+          <Greeting name='evans' />
+        </View>
+        <View style={{ flex:2, height: 50 }}>
+          <TextForm/>
         </View>
         <View style={{ flex: 1, backgroundColor: 'skyblue' }} >
-          <Blink text="lorem ipsum  "/>
+          <Blink text="lorem ipsum  " />
         </View>
-        <View style={{ height: 50, flex: 1, backgroundColor: 'steelblue' }} >
-          <Image source={pic} style ={{ flex:1 }}/>
+        <View style={{ height: 50, flex: 2, backgroundColor: 'steelblue' }} >
+          <Image source={pic} style={{ flex: 1 }} />
         </View>
       </View>
     );
