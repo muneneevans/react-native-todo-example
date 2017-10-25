@@ -8,9 +8,11 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text, TextInput,
+  Text, TextInput, Button, Alert,
   View, Image
 } from 'react-native';
+
+import {HomeSceen } from "./app/Screens/Home"
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -62,9 +64,9 @@ class TextForm extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1}}>
-        <Text style={{flex:1}}>{this.state.text}</Text>
-        <TextInput style={{ flex: 2, height:50 }} placeholder="type fool... 🍕" onChangeText={(textEntered) => { this.setState({ text : textEntered }) }} />
+      <View style={{ flex: 1 }}>
+        <Text style={{ flex: 1 }}>{this.state.text}</Text>
+        <TextInput style={{ flex: 2, height: 50 }} placeholder="type fool... 🍕" onChangeText={(textEntered) => { this.setState({ text: textEntered }) }} />
       </View>
     )
   }
@@ -74,20 +76,7 @@ export default class App extends Component<{}> {
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
-        <View style={{ flex: 1, backgroundColor: 'powderblue' }} >
-          <Greeting name='evans' />
-        </View>
-        <View style={{ flex:2, height: 50 }}>
-          <TextForm/>
-        </View>
-        <View style={{ flex: 1, backgroundColor: 'skyblue' }} >
-          <Blink text="lorem ipsum  " />
-        </View>
-        <View style={{ height: 50, flex: 2, backgroundColor: 'steelblue' }} >
-          <Image source={pic} style={{ flex: 1 }} />
-        </View>
-      </View>
+      <HomeSceen/>
     );
   }
 }
