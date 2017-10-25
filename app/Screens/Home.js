@@ -1,26 +1,21 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, FlatList, Image } from "react-native"
+import { View, Text, StyleSheet, FlatList, Image, ScrollView } from "react-native"
 
 export class HomeSceen extends Component {
 
     render() {
         return (
-            <View style={homeStyles.Screen}>
-                <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }} style={homeStyles.image} />
-                    <FlatList
-                        data={[{ key: 'a' }, { key: 'b' }]}
-                        style={{ flexDirection: 'row' }}
-                        renderItem={({ item }) => (
-                            <View style={{ padding: 5, flexDirection: 'column' }}>
-                                <View style={homeStyles.Card}>
-                                    <Text>{item.key}</Text>
-                                </View>
-                            </View>
-                        )}
-                    />
-                </View>
-            </View>
+            <ScrollView style={homeStyles.container}>
+                <View style={homeStyles.boxLarge}/>
+                <ScrollView horizontal>
+                    <View style={homeStyles.boxSmall}/>
+                    <View style={homeStyles.boxSmall}/>
+                    <View style={homeStyles.boxSmall}/>
+                </ScrollView>
+                <View style={homeStyles.boxLarge}/>
+                <View style={homeStyles.boxSmall}/>
+                <View style={homeStyles.boxLarge}/>                
+            </ScrollView>
         )
     }
 }
@@ -43,6 +38,23 @@ const homeStyles = StyleSheet.create({
     image: {
         flex: 1,
 
+    },
+
+    container: {
+        flex: 1
+    },
+    boxSmall: {
+        width: 200,
+        height: 200,
+        marginBottom: 10,
+        marginRight: 10,
+        backgroundColor: 'skyblue',
+    },
+
+    boxLarge: {
+        flex: 1,        
+        height: 300,
+        backgroundColor: 'steelblue',
     },
 
 })
