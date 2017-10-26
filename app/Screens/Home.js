@@ -14,6 +14,8 @@ const sections = [
             { key: 5, text: 'Image' },
             { key: 6, text: 'Image' },
             { key: 7, text: 'Image' },
+            { key: 8, text: 'Image' },
+            { key: 9, text: 'Image' },
         ]
     },
     {
@@ -21,30 +23,41 @@ const sections = [
         title: 'List Components',
         data: [
             { key: 3, text: 'ScrollView' },
+            { key: 7, text: 'ScrollView' },
+            { key: 8, text: 'ScrollView' },
             { key: 4, text: 'ListView' },
-        ]
+        ],
+        renderItem: ({ item }) => {
+            return (
+                <View style={homeStyles.container}>
+                    <Text style={homeStyles.header}>
+                        {item.text}
+                    </Text>
+                </View>
+            )
+        }
     }
 ]
 export class HomeSceen extends Component {
 
-    renderItem = ({item}) =>{
-        return(
-            <View  style={homeStyles.square}/>
+    renderItem = ({ item }) => {
+        return (
+            <View style={homeStyles.square} />
         )
     }
 
-    renderSectionHeader = ({section}) => {
-        return(
+    renderSectionHeader = ({ section }) => {
+        return (
             <Text style={homeStyles.header}>
                 {section.title}
             </Text>
         )
     }
 
-    render() {        
+    render() {
         return (
             <ScrollView style={homeStyles.Screen}>
-                <SectionList 
+                <SectionList
                     sections={sections}
                     renderItem={this.renderItem}
                     renderSectionHeader={this.renderSectionHeader}
@@ -62,7 +75,7 @@ const homeStyles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20,
         paddingRight: 10,
-        paddingLeft: 10
+        paddingLeft: 10,
     },
     Card: {
         flex: 1,
