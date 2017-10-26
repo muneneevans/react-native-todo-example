@@ -1,32 +1,347 @@
 import React, { Component } from "react"
 import { View, Text, StyleSheet, ListView, FlatList, Image, SectionList, ScrollView } from "react-native"
 
-const rows = [{"id":1,"model":"Corvette"},{"id":2,"model":"911"},{"id":3,"model":"Expedition"},{"id":4,"model":"Savana 1500"},{"id":5,"model":"Jimmy"},{"id":6,"model":"Fiesta"},{"id":7,"model":"Q"},{"id":8,"model":"Forenza"},{"id":9,"model":"SLK-Class"},{"id":10,"model":"GS"},{"id":11,"model":"MDX"},{"id":12,"model":"Corvette"},{"id":13,"model":"Range Rover Sport"},{"id":14,"model":"Rodeo"},{"id":15,"model":"Express 2500"},{"id":16,"model":"Sprinter"},{"id":17,"model":"Cirrus"},{"id":18,"model":"Express 2500"},{"id":19,"model":"Corvette"},{"id":20,"model":"GS"},{"id":21,"model":"9-3"},{"id":22,"model":"3 Series"},{"id":23,"model":"Corolla"},{"id":24,"model":"Armada"},{"id":25,"model":"RX-8"},{"id":26,"model":"Caliber"},{"id":27,"model":"Familia"},{"id":28,"model":"Eclipse"},{"id":29,"model":"GL-Class"},{"id":30,"model":"Q"},{"id":31,"model":"Traverse"},{"id":32,"model":"Accent"},{"id":33,"model":"7 Series"},{"id":34,"model":"E-Class"},{"id":35,"model":"Lanos"},{"id":36,"model":"Impala"},{"id":37,"model":"929"},{"id":38,"model":"Ram Van 3500"},{"id":39,"model":"Envoy XL"},{"id":40,"model":"CLS-Class"},{"id":41,"model":"Catera"},{"id":42,"model":"Regal"},{"id":43,"model":"H2"},{"id":44,"model":"Tredia"},{"id":45,"model":"Taurus"},{"id":46,"model":"Nubira"},{"id":47,"model":"928"},{"id":48,"model":"Odyssey"},{"id":49,"model":"Discovery"},{"id":50,"model":"Azera"},{"id":51,"model":"Suburban 1500"},{"id":52,"model":"Regal"},{"id":53,"model":"LeMans"},{"id":54,"model":"Expedition"},{"id":55,"model":"Quest"},{"id":56,"model":"SL-Class"},{"id":57,"model":"Town & Country"},{"id":58,"model":"Solara"},{"id":59,"model":"Ram 50"},{"id":60,"model":"Caprice"},{"id":61,"model":"Monaco"},{"id":62,"model":"924 S"},{"id":63,"model":"GT"},{"id":64,"model":"Sedona"},{"id":65,"model":"Colt"},{"id":66,"model":"Ram Van 2500"},{"id":67,"model":"Mazda5"},{"id":68,"model":"D150"},{"id":69,"model":"Cayenne"},{"id":70,"model":"Canyon"},{"id":71,"model":"TL"},{"id":72,"model":"GS"},{"id":73,"model":"Maxima"},{"id":74,"model":"Sable"},{"id":75,"model":"57"},{"id":76,"model":"LeBaron"},{"id":77,"model":"Previa"},{"id":78,"model":"Pilot"},{"id":79,"model":"Fury"},{"id":80,"model":"80"},{"id":81,"model":"Accent"},{"id":82,"model":"MX-5"},{"id":83,"model":"Pajero"},{"id":84,"model":"GTO"},{"id":85,"model":"Bonneville"},{"id":86,"model":"911"},{"id":87,"model":"Grand Voyager"},{"id":88,"model":"Prowler"},{"id":89,"model":"Canyon"},{"id":90,"model":"X5"},{"id":91,"model":"ES"},{"id":92,"model":"RL"},{"id":93,"model":"Ram Van B150"},{"id":94,"model":"Savana 2500"},{"id":95,"model":"X5"},{"id":96,"model":"3000GT"},{"id":97,"model":"ES"},{"id":98,"model":"Space"},{"id":99,"model":"90"},{"id":100,"model":"Silverado 3500"}]
+const rows = {
+    'Basic Components': [{
+        "id": 1,
+        "text": "Ranger"
+      }, {
+        "id": 2,
+        "text": "Bonneville"
+      }, {
+        "id": 3,
+        "text": "PT Cruiser"
+      }, {
+        "id": 4,
+        "text": "Quattroporte"
+      }, {
+        "id": 5,
+        "text": "Diablo"
+      }, {
+        "id": 6,
+        "text": "Legacy"
+      }, {
+        "id": 7,
+        "text": "GT"
+      }, {
+        "id": 8,
+        "text": "Altima"
+      }, {
+        "id": 9,
+        "text": "Yukon XL 2500"
+      }, {
+        "id": 10,
+        "text": "XJ Series"
+      }, {
+        "id": 11,
+        "text": "300ZX"
+      }, {
+        "id": 12,
+        "text": "Savana 1500"
+      }, {
+        "id": 13,
+        "text": "S-Class"
+      }, {
+        "id": 14,
+        "text": "Passat"
+      }, {
+        "id": 15,
+        "text": "G-Series G10"
+      }, {
+        "id": 16,
+        "text": "S-Series"
+      }, {
+        "id": 17,
+        "text": "Sable"
+      }, {
+        "id": 18,
+        "text": "T100 Xtra"
+      }, {
+        "id": 19,
+        "text": "Escalade"
+      }, {
+        "id": 20,
+        "text": "Astro"
+      }, {
+        "id": 21,
+        "text": "Grand Caravan"
+      }, {
+        "id": 22,
+        "text": "E-Series"
+      }, {
+        "id": 23,
+        "text": "Sportage"
+      }, {
+        "id": 24,
+        "text": "Concorde"
+      }, {
+        "id": 25,
+        "text": "9-5"
+      }, {
+        "id": 26,
+        "text": "M-Class"
+      }, {
+        "id": 27,
+        "text": "CTS-V"
+      }, {
+        "id": 28,
+        "text": "Mazda5"
+      }, {
+        "id": 29,
+        "text": "C-Class"
+      }, {
+        "id": 30,
+        "text": "1500"
+      }, {
+        "id": 31,
+        "text": "Continental GTC"
+      }, {
+        "id": 32,
+        "text": "626"
+      }, {
+        "id": 33,
+        "text": "Q"
+      }, {
+        "id": 34,
+        "text": "Viper"
+      }, {
+        "id": 35,
+        "text": "Millenia"
+      }, {
+        "id": 36,
+        "text": "Camaro"
+      }, {
+        "id": 37,
+        "text": "Dakota"
+      }, {
+        "id": 38,
+        "text": "Fleetwood"
+      }, {
+        "id": 39,
+        "text": "RDX"
+      }, {
+        "id": 40,
+        "text": "Armada"
+      }, {
+        "id": 41,
+        "text": "Defender"
+      }, {
+        "id": 42,
+        "text": "Type-1h"
+      }, {
+        "id": 43,
+        "text": "Terraza"
+      }, {
+        "id": 44,
+        "text": "Firebird Formula"
+      }, {
+        "id": 45,
+        "text": "F150"
+      }, {
+        "id": 46,
+        "text": "Civic"
+      }, {
+        "id": 47,
+        "text": "Charger"
+      }, {
+        "id": 48,
+        "text": "Chariot"
+      }, {
+        "id": 49,
+        "text": "X5 M"
+      }, {
+        "id": 50,
+        "text": "Sierra"
+      }, {
+        "id": 51,
+        "text": "Topaz"
+      }, {
+        "id": 52,
+        "text": "Camaro"
+      }, {
+        "id": 53,
+        "text": "Forte"
+      }, {
+        "id": 54,
+        "text": "Catera"
+      }, {
+        "id": 55,
+        "text": "Cougar"
+      }, {
+        "id": 56,
+        "text": "RL"
+      }, {
+        "id": 57,
+        "text": "DeVille"
+      }, {
+        "id": 58,
+        "text": "Highlander"
+      }, {
+        "id": 59,
+        "text": "Explorer"
+      }, {
+        "id": 60,
+        "text": "CR-Z"
+      }, {
+        "id": 61,
+        "text": "Spectra"
+      }, {
+        "id": 62,
+        "text": "ES"
+      }, {
+        "id": 63,
+        "text": "Journey"
+      }, {
+        "id": 64,
+        "text": "57"
+      }, {
+        "id": 65,
+        "text": "Sienna"
+      }, {
+        "id": 66,
+        "text": "Ram 2500"
+      }, {
+        "id": 67,
+        "text": "E150"
+      }, {
+        "id": 68,
+        "text": "Diablo"
+      }, {
+        "id": 69,
+        "text": "F150"
+      }, {
+        "id": 70,
+        "text": "Clubman"
+      }, {
+        "id": 71,
+        "text": "Grand Marquis"
+      }, {
+        "id": 72,
+        "text": "Pathfinder"
+      }, {
+        "id": 73,
+        "text": "Prius"
+      }, {
+        "id": 74,
+        "text": "Passport"
+      }, {
+        "id": 75,
+        "text": "GTI"
+      }, {
+        "id": 76,
+        "text": "Elan"
+      }, {
+        "id": 77,
+        "text": "Defender 90"
+      }, {
+        "id": 78,
+        "text": "C30"
+      }, {
+        "id": 79,
+        "text": "QX"
+      }, {
+        "id": 80,
+        "text": "Quest"
+      }, {
+        "id": 81,
+        "text": "Venture"
+      }, {
+        "id": 82,
+        "text": "5000S"
+      }, {
+        "id": 83,
+        "text": "E-Series"
+      }, {
+        "id": 84,
+        "text": "Range Rover"
+      }, {
+        "id": 85,
+        "text": "Cobalt"
+      }, {
+        "id": 86,
+        "text": "Titan"
+      }, {
+        "id": 87,
+        "text": "Express 1500"
+      }, {
+        "id": 88,
+        "text": "Taurus"
+      }, {
+        "id": 89,
+        "text": "Firefly"
+      }, {
+        "id": 90,
+        "text": "Silverado"
+      }, {
+        "id": 91,
+        "text": "Impala"
+      }, {
+        "id": 92,
+        "text": "Accord"
+      }, {
+        "id": 93,
+        "text": "Vibe"
+      }, {
+        "id": 94,
+        "text": "CX-9"
+      }, {
+        "id": 95,
+        "text": "9000"
+      }, {
+        "id": 96,
+        "text": "RX-7"
+      }, {
+        "id": 97,
+        "text": "Golf III"
+      }, {
+        "id": 98,
+        "text": "Legacy"
+      }, {
+        "id": 99,
+        "text": "Elantra"
+      }, {
+        "id": 100,
+        "text": "850"
+      }],
+    'List Components': [
+        { id: 3, text: 'ScrollView' },
+        { id: 4, text: 'ListView' },
+    ],
+}
 
 const rowHasChanged = (r1, r2) => { r1.id !== r2.id }
+const sectionHeaderHasChanged = (s1, s2) => { s1 !== s2 }
 
-const ds = new ListView.DataSource({ rowHasChanged })
+const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged })
 export class HomeSceen extends Component {
 
     state = {
-        dataSource: ds.cloneWithRows(rows)
-
+        dataSource: ds.cloneWithRowsAndSections(rows)
     }
 
-    renderRow = (rowData) => {
+    renderRow = (rowData, sectionId) => {
         return (
             <Text style={homeStyles.row}>
-                {rowData.model}
+                {rowData.text}
             </Text>
         )
     }
 
-    render(){
-        return(
+    renderSectionHeader = (sectionRows, sectionId) => {
+        return (
+            <Text style={homeStyles.header}>
+                {sectionId} ({sectionRows.length})
+            </Text>
+        )
+    }
+
+    render() {
+        return (
             <ListView
                 style={homeStyles.container}
                 dataSource={this.state.dataSource}
-                renderRow={this.renderRow}/>
+                renderRow={this.renderRow}
+                renderSectionHeader={this.renderSectionHeader} />
         )
     }
 }
@@ -66,7 +381,7 @@ const homeStyles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        paddingTop: 22
+        // paddingTop: 22
     },
     item: {
         paddingTop: 10,
