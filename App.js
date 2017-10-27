@@ -5,106 +5,17 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text, TextInput, Button, Alert,
-  View, Image
-} from 'react-native';
+import {Platform} from "react-native"
 
-import {HomeSceen } from "./app/Screens/Home"
+import TodoApp from "./app/index"
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-  'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-  'Shake or press menu button for dev menu',
-});
-
-class Greeting extends Component {
-  render() {
-    return (
-      <Text >Hello {this.props.name} ! </Text>
-    )
-  }
-}
-
-class Blink extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showText: true
-    }
-
-    setInterval(() => {
-      this.setState({ showText: !this.state.showText })
-    }, 1000)
-  }
-
-  render() {
-    return (
-      <View>
-        {
-          this.state.showText ? (
-            <Text>{this.props.text}</Text>
-          ) : (
-              <View></View>
-            )
-        }
-      </View>
-    )
-  }
-}
-
-class TextForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { text: "Nothing entered" }
-  }
-
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <Text style={{ flex: 1 }}>{this.state.text}</Text>
-        <TextInput style={{ flex: 2, height: 50 }} placeholder="type fool... 🍕" onChangeText={(textEntered) => { this.setState({ text: textEntered }) }} />
-      </View>
-    )
-  }
-}
 
 export default class App extends Component<{}> {
-  render() {
-    let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
+  render() {    
     return (
-      <HomeSceen/>
+      <TodoApp/>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  red: {
-    color: 'red',
-  },
-})
 
