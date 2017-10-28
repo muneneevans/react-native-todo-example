@@ -11,15 +11,23 @@ import * as tasksSelectors from "../Store/Tasks/selectors"
 
 //component imports
 import TaskList from "../Components/TaskList"
+import NewTaskForm from "../Components/NewTaskForm"
 
 
 class TasksScreen extends Component {
 
+    addNewTask(newTask){
+        this.props.tasksActions.addnewTask(newTask.taskName)
+    }
+
     render() {
         return (
-            <View style={{ flex: 1, flexDirection: 'column' }}>
-                <View style={{height: 24}}></View>
-                <View style={{ flex:1}}>
+            <View >
+                <View style={{height: 48}}>
+                    <NewTaskForm
+                        addNewTask={this.addNewTask.bind(this)}/>
+                </View>
+                <View>
                     <TaskList tasks={this.props.tasks} />
                 </View>
             </View>
@@ -36,7 +44,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        taskActions: bindActionCreators(tasksActions, dispatch)
+        tasksActions: bindActionCreators(tasksActions, dispatch)
     }
 }
 

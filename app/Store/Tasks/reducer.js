@@ -12,7 +12,7 @@ export default function tasksReducer(state = initialState, action = {}) {
     switch (action.type) {
         case types.ADD_NEW_TASK:
             return state.merge({
-                tasks: addTaskToList(state.tasks)
+                tasks: addTaskToList(action.newTask, state.tasks,)
             })
 
         default:
@@ -24,10 +24,13 @@ export default function tasksReducer(state = initialState, action = {}) {
 function addTaskToList(newTask, tasksList) {
     if (tasksList.length > 0) 
     { 
-        newTaskList = Immutable.asMutable(tasksList, {deep: true})
+        let newTaskList = Immutable.asMutable(tasksList, {deep: true})
         newTaskList.push(newTask)
+        return newTaskList
     }
     else{
+        let newTaskList = []
         newTaskList.push(newTask)    
+        return newTaskList
     }
 }

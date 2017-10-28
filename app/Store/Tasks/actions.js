@@ -4,7 +4,7 @@ export function addnewTask(taskName){
     return function(dispatch, getState){
         return dispatch({
             type: types.ADD_NEW_TASK,
-            task: {
+            newTask: {
                 name: taskName,
                 completed: false
             }

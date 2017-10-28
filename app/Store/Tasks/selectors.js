@@ -1,4 +1,3 @@
-export function getTasks(state){
-    console.log(state.tasks.tasks)
+export function getTasks(state){    
     return state.tasks.tasks
 }
