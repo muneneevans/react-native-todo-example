@@ -9,12 +9,12 @@ const newTaskFormStyles = StyleSheet.create({
 })
 
 class NewTaskForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        
+
         this.state = {
             newTask: {
-                taskName: 'undefined'
+                taskName: ''
             }
         }
     }
@@ -24,11 +24,16 @@ class NewTaskForm extends Component {
             newTask: {
                 taskName: text
             }
-        })        
+        })
     }
     onSubmitEditing = (sender) => {
-        if(this.state.newTask.taskName !== 'undefined'){
-            this.props.addNewTask(this.state.newTask)            
+        if (this.state.newTask.taskName !== '') {
+            this.props.addNewTask(this.state.newTask)
+            this.setState({
+                newTask: {
+                    taskName: ''
+                }
+            })
         }
     }
 
@@ -37,8 +42,9 @@ class NewTaskForm extends Component {
             <TextInput
                 style={newTaskFormStyles.inputText}
                 placeholder="new task..."
-                onSubmitEditing={ this.onSubmitEditing.bind(this) }
+                onSubmitEditing={this.onSubmitEditing.bind(this)}
                 onChangeText={this.onChangeText.bind(this)}
+                value={this.state.newTask.taskName}
             />
         )
     }

@@ -2,17 +2,14 @@ import * as types from "./actionTypes"
 import Immutable from "seamless-immutable"
 
 const initialState = Immutable({
-    tasks: [{
-        name: 'taskName',
-        completed: false
-    }]
+    tasks: [{ name: 'completed task', completed: true }, { name: 'uncompleted task', completed: false },]
 })
 
 export default function tasksReducer(state = initialState, action = {}) {
     switch (action.type) {
         case types.ADD_NEW_TASK:
             return state.merge({
-                tasks: addTaskToList(action.newTask, state.tasks,)
+                tasks: addTaskToList(action.newTask, state.tasks, )
             })
 
         default:
@@ -22,15 +19,14 @@ export default function tasksReducer(state = initialState, action = {}) {
 
 
 function addTaskToList(newTask, tasksList) {
-    if (tasksList.length > 0) 
-    { 
-        let newTaskList = Immutable.asMutable(tasksList, {deep: true})
+    if (tasksList.length > 0) {
+        let newTaskList = Immutable.asMutable(tasksList, { deep: true })
         newTaskList.push(newTask)
         return newTaskList
     }
-    else{
+    else {
         let newTaskList = []
-        newTaskList.push(newTask)    
+        newTaskList.push(newTask)
         return newTaskList
     }
 }

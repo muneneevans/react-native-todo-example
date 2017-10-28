@@ -28,7 +28,7 @@ class TasksScreen extends Component {
                         addNewTask={this.addNewTask.bind(this)}/>
                 </View>
                 <View>
-                    <TaskList tasks={this.props.tasks} />
+                    <TaskList tasks={this.props.pendingTasks} />
                 </View>
             </View>
         )
@@ -38,7 +38,7 @@ class TasksScreen extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        tasks: tasksSelectors.getTasks(state)
+        pendingTasks: tasksSelectors.getPendingTasks(state),
     }
 }
 
