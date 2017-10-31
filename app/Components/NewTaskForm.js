@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { TextInput, StyleSheet } from "react-native"
+import { Item, Input} from "native-base"
+
 
 const newTaskFormStyles = StyleSheet.create({
     inputText: {
         fontSize: 18,
-        backgroundColor: '#f2f2f2'
+        lineHeight: 18,
+        height: 30,
+        padding: 5
     }
 })
 
@@ -39,13 +43,16 @@ class NewTaskForm extends Component {
 
     render() {
         return (
-            <TextInput
-                style={newTaskFormStyles.inputText}
-                placeholder="new task..."
-                onSubmitEditing={this.onSubmitEditing.bind(this)}
-                onChangeText={this.onChangeText.bind(this)}
-                value={this.state.newTask.taskName}
-            />
+            <Item regular>
+                <Input
+                    onSubmitEditing={this.onSubmitEditing.bind(this)}
+                    onChangeText={this.onChangeText.bind(this)}
+                    value={this.state.newTask.taskName}
+                    style={newTaskFormStyles.inputText}
+                    placeholder="new task..."
+                />
+            </Item>
+            
         )
     }
 }
