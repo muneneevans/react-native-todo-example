@@ -12,27 +12,26 @@ import * as tasksSelectors from "../Store/Tasks/selectors"
 //component imports
 import TaskList from "../Components/TaskList"
 import NewTaskForm from "../Components/NewTaskForm"
-
+import FolderHeader from "../Components/FolderHeader"
 
 
 
 const taskScreenStyles = StyleSheet.create({
-    headerView: {
-        height: 72, elevation: 2,
-        backgroundColor: "#fAfAfA",
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'flex-start',
-        paddingLeft: 5,
-        paddingRight: 5
+    screenContainer: {
+        flex: 1,
     },
-    headerText: {
-        fontWeight: 'bold',
-        fontSize: 36
+    contentView: {
+        flex: 1,
     },
     bodyView: {
         padding: 5
     },
+    footerView: {
+        height: 50,
+        backgroundColor: '#FAFAFA',
+        elevation: 6
+    },
+   
 
 })
 
@@ -45,19 +44,16 @@ class TasksScreen extends Component {
 
     render() {
         return (
-            <View >
-                <View style={taskScreenStyles.headerView}>
-                    <Text style={taskScreenStyles.headerText}>Overdone</Text>
-                </View>
-                <View style={taskScreenStyles.bodyView}>
-                    <View style={{ height: 48 }}>
+            <View style={taskScreenStyles.screenContainer}>
+                <View style={taskScreenStyles.contentView}>
+                    <FolderHeader header={'evans'} />
+                    <View style={taskScreenStyles.bodyView}>
                         <NewTaskForm
                             addNewTask={this.addNewTask.bind(this)} />
-                    </View>
-                    <View>
                         <TaskList tasks={this.props.pendingTasks} />
                     </View>
                 </View>
+                <View style={taskScreenStyles.footerView}></View>
             </View>
         )
     }

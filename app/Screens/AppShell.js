@@ -7,9 +7,7 @@ import TasksScreen from "../Screens/TasksScreen"
 class AppShell extends Component {
     render() {
         return (
-            <View style={{}}>
-                <TasksScreen/>
-            </View >
+            <TasksScreen />
         )
     }
 }

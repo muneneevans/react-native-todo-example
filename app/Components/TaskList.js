@@ -9,15 +9,16 @@ const taskListStyles = StyleSheet.create({
     taskItem: {
         flex: 1,
         flexDirection: 'row',
-        padding:5
+        padding:10
     },
     taskText: {
-        flex: 50
+        flex: 1
     },
     taskCheckBox: {
         flex:1,
         justifyContent: 'flex-end',
         minWidth: 25,        
+        maxWidth: 25,        
 
     }
 })
@@ -44,7 +45,6 @@ const TaskList = (props) => {
 
     return (
         <ListView
-
             dataSource={dataSource}
             renderRow={renderRow} />
     )

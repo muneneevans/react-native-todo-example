@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { TextInput, StyleSheet } from "react-native"
-import { Item, Input} from "native-base"
+import { TextInput, StyleSheet, View } from "react-native"
+
 
 
 const newTaskFormStyles = StyleSheet.create({
@@ -8,7 +8,15 @@ const newTaskFormStyles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 18,
         height: 30,
-        padding: 5
+        padding: 2,
+        paddingLeft: 5,
+        paddingRight: 5,
+        borderColor: 'grey',
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+
     }
 })
 
@@ -43,16 +51,17 @@ class NewTaskForm extends Component {
 
     render() {
         return (
-            <Item regular>
-                <Input
+            <View regular>
+                <TextInput
                     onSubmitEditing={this.onSubmitEditing.bind(this)}
                     onChangeText={this.onChangeText.bind(this)}
                     value={this.state.newTask.taskName}
                     style={newTaskFormStyles.inputText}
                     placeholder="new task..."
+                    underlineColorAndroid='transparent'
                 />
-            </Item>
-            
+            </View>
+
         )
     }
 }
