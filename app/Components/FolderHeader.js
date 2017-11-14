@@ -5,14 +5,14 @@ const folderHeaderStyles = StyleSheet.create({
     headerView: {
         flex: 1,
         minHeight: 72,
-        maxHeight: 100,
-        elevation: 0,
-        backgroundColor: "#fAfAfA",
+        maxHeight: 10,
+        elevation: 3,        
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'flex-start',
         paddingLeft: 5,
-        paddingRight: 5
+        paddingRight: 5,
+        backgroundColor: '#f15f41'
     },
     headerText: {
         fontWeight: 'bold',

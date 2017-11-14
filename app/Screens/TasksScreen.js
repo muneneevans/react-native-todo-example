@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Button } from "react-native"
 
 //redux imports
 import { bindActionCreators } from "redux"
@@ -19,19 +19,20 @@ import FolderHeader from "../Components/FolderHeader"
 const taskScreenStyles = StyleSheet.create({
     screenContainer: {
         flex: 1,
+        backgroundColor: "white"
     },
     contentView: {
         flex: 1,
     },
     bodyView: {
-        padding: 5
+        padding: 5,
     },
     footerView: {
         height: 50,
         backgroundColor: '#FAFAFA',
         elevation: 6
     },
-   
+
 
 })
 
@@ -53,7 +54,11 @@ class TasksScreen extends Component {
                         <TaskList tasks={this.props.pendingTasks} />
                     </View>
                 </View>
-                <View style={taskScreenStyles.footerView}></View>
+                <View style={taskScreenStyles.footerView}>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Home')}
+                        title="Home" />
+                </View>
             </View>
         )
     }
