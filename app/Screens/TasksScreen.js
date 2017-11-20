@@ -15,7 +15,6 @@ import NewTaskForm from "../Components/NewTaskForm"
 import FolderHeader from "../Components/FolderHeader"
 
 
-
 const taskScreenStyles = StyleSheet.create({
     screenContainer: {
         flex: 1,
@@ -38,6 +37,10 @@ const taskScreenStyles = StyleSheet.create({
 
 
 class TasksScreen extends Component {
+
+    componentDidMount(){
+        this.props.tasksActions.getAllTasks()
+    }
 
     addNewTask(newTask) {
         this.props.tasksActions.addnewTask(newTask.taskName)
